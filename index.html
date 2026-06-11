@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kgosi Tech CCTV Solutions | Safe & Secure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0b2545;
+            --secondary-color: #134074;
+            --accent-color: #00b4d8;
+            --light-bg: #eef4f8;
+            --dark-text: #1d2d44;
+            --white: #ffffff;
+            --price-tag: #cc0000;
+            --whatsapp-green: #25d366;
+            --facebook-blue: #1877f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Professional CSS-based Logo (Guaranteed to show up) */
+        .logo-graphics {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #0b2545 20%, #134074 60%, #00b4d8 100%);
+            border: 2px solid var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.4rem;
+            box-shadow: 0 0 10px rgba(0,180,216,0.6);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            font-weight: 800;
+        }
+        
+        .logo-text span {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            display: block;
+            margin-top: -4px;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(11, 37, 69, 0.85), rgba(19, 64, 116, 0.9)), url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 6rem 5%;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #0096c7;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        /* Founder Section Styling */
+        .founder-section {
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .founder-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            background: var(--light-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        .founder-img-container {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            background-color: #0b2545;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Secure icon placeholder that always loads on CodePen */
+        .founder-img-container i {
+            font-size: 4.5rem;
+            color: var(--accent-color);
+        }
+
+        .founder-card h3 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .founder-title {
+            font-weight: 700;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: #e2ebf0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .price-card:hover {
+            transform: scale(1.03);
+        }
+
+        .price-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 2rem 1rem;
+        }
+
+        .price-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-tag {
+            background-color: var(--price-tag);
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 0.5rem;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .price-features {
+            list-style: none;
+            padding: 2rem 1.5rem;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .price-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .price-features li::before {
+            content: "✓";
+            color: green;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .badge {
+            background-color: #2a9d8f;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.8rem;
+            border-radius: 20px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        /* Booking Form */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* Social Quick Channels Bar */
+        .social-quick-bar {
+            background-color: #081b33;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .social-link-btn.wa {
+            background-color: var(--whatsapp-green);
+        }
+
+        .social-link-btn.fb {
+            background-color: var(--facebook-blue);
+        }
+
+        .social-link-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2.5rem 5%;
+        }
+
+        .footer-info {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #b3c5d7;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <div class="logo-graphics">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>KGOSI TECH</h1>
+                    <span>WE ALWAYS WATCHING</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#founder">Founder</a></li>
+                    <li><a href="#packages">CCTV Packages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Professional CCTV Surveillance Systems</h2>
+        <p>Providing peace of mind by securing businesses and homes with cutting-edge surveillance technology across Barkly West and the broader Northern Cape region.</p>
+        <a href="#packages" class="btn">View Packages</a>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">Who We Are</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+            <div class="card">
+                <h3>Our Mission</h3>
+                <p>To provide peace of mind by securing businesses and homes with cutting-edge surveillance technology, ensuring protection for both property and people.</p>
+            </div>
+            <div class="card">
+                <h3>Our Vision</h3>
+                <p>To create a safer world where technology empowers communities and businesses to operate with confidence and without fear.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="founder" class="section founder-section">
+        <div class="founder-card">
+            <div class="founder-img-container">
+                <i class="fa-solid fa-user-shield"></i>
+            </div>
+            <h3>Bakang Kgosi</h3>
+            <div class="founder-title">Founder of Kgosi Tech</div>
+            <p>Committed to making professional technology and security services accessible, reliable, and affordable for our communities.</p>
+        </div>
+    </section>
+
+    <section id="packages" class="section pricing">
+        <h2 class="section-title">Hikvision 1080P 2MP HD CCTV Systems</h2>
+        <p style="text-align: center; margin: -2rem 0 3rem 0; font-weight: 500; color: var(--secondary-color);">HIGH DEFINITION • RELIABLE • SECURE • 1 YEAR WARRANTY INCLUDED</p>
+        
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="price-header">
+                    <h3>4 CHANNEL SYSTEM</h3>
+                </div>
+                <div class="price-tag">R6 500</div>
+                <ul class="price-features">
+                    <li>4 Channel Hikvision DVR</li>
+                    <li>4 x Hikvision 2MP Cameras</li>
+                    <li>500GB Dedicated Hard Drive</li>
+                    <li>Cabling and Connectors</li>
+                    <li>Professional Installation Included</li>
+                </ul>
+                <div style="padding: 1.5rem;"><button class="btn" onclick="selectPackage('4 Channel System (R6 500)')">Book Install</button></div>
+            </div>
+
+            <div class="price-card">
+                <span class="badge">Popular</span>
+                <div class="price-header">
+                    <h3>8 CHANNEL SYSTEM</h3>
+                </div>
+                <div class="price-tag">R8 500</div>
+                <ul class="price-features">
+                    <li>8 Channel Hikvision DVR</li>
+                    <li>8 x Hikvision 2MP Cameras</li>
+                    <li>1TB Dedicated Hard Drive</li>
+                    <li>Cabling and Connectors</li>
+                    <li>Professional Installation Included</li>
+                </ul>
+                <div style="padding: 1.5rem;"><button class="btn" onclick="selectPackage('8 Channel System (R8 500)')">Book Install</button></div>
+            </div>
+
+            <div class="price-card">
+                <div class="price-header">
+                    <h3>16 CHANNEL SYSTEM</h3>
+                </div>
+                <div class="price-tag">R14 500</div>
+                <ul class="price-features">
+                    <li>16 Channel Hikvision DVR</li>
+                    <li>16 x Hikvision 2MP Cameras</li>
+                    <li>2TB Dedicated Hard Drive</li>
+                    <li>Cabling and Connectors</li>
+                    <li>Professional Installation Included</li>
+                </ul>
+                <div style="padding: 1.5rem;"><button class="btn" onclick="selectPackage('16 Channel System (R14 500)')">Book Install</button></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="section-title">Request a Quote or Service</h2>
+        <div class="contact-container">
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="name">Your Name / Business Name</label>
+                    <input type="text" id="name" required placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required placeholder="e.g. 084 540 2663">
+                </div>
+                <div class="form-group">
+                    <label for="package">Select Service / Package</label>
+                    <select id="package">
+                        <option value="General Inquiry">General IT / Business Inquiry</option>
+                        <option value="4 Channel System (R6 500)">4 Channel CCTV Installation - R6 500</option>
+                        <option value="8 Channel System (R8 500)">8 Channel CCTV Installation - R8 500</option>
+                        <option value="16 Channel System (R14 500)">16 Channel CCTV Installation - R14 500</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message Details</label>
+                    <textarea id="message" rows="4" placeholder="Let us know your specific requirements or address..."></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Submit Request</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="social-quick-bar">
+        <a href="https://wa.me/27845402663" target="_blank" class="social-link-btn wa">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> WhatsApp Us: 084 540 2663
+        </a>
+        <a href="https://web.facebook.com/people/KGOSI-TECH-CCTV-SOLUTIONS/100095111956041/" target="_blank" class="social-link-btn fb">
+            <i class="fa-brands fa-facebook" style="font-size: 1.3rem;"></i> Facebook: KGOSI TECH CCTV SOLUTIONS
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Kgosi Tech CCTV Solutions. All Rights Reserved.</p>
+        <p style="font-size: 0.85rem; margin-top: 5px;">Remote Viewing Anywhere | Reliable Security 24/7</p>
+        <div class="footer-info">
+            📍 Barkly West, Mataleng, Northern Cape <br>
+            📞 084 540 2663 | ✉ bkgosi58@gmail.com
+        </div>
+    </footer>
+
+    <script>
+        function selectPackage(packageName) {
+            const dropdown = document.getElementById('package');
+            dropdown.value = packageName;
+            document.getElementById('contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const chosenService = document.getElementById('package').value;
+            alert(`Thank you, ${name}! Your request for "${chosenService}" has been simulated successfully.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
