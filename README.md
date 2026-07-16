@@ -1,13 +1,9 @@
 
 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kgosi Tech CCTV & Corporate Solutions | Safe, Secure & Compliant</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
+
+    
+       
             --primary-color: #0b2545;
             --secondary-color: #134074;
             --accent-color: #00b4d8;
