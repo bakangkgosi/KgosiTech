@@ -1,5 +1,5 @@
-
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +54,6 @@
             gap: 12px;
         }
 
-        /* Container designed to center and display your circular logo cleanly */
         .logo-graphics {
             width: 55px;
             height: 55px;
@@ -65,13 +64,13 @@
             justify-content: center;
             box-shadow: 0 0 10px rgba(0,180,216,0.6);
             overflow: hidden;
-            background-color: #081b33; /* Dark background to blend with your logo's theme */
+            background-color: #081b33;
         }
 
         .logo-graphics img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Ensures the circular emblem scales perfectly without distortion */
+            object-fit: cover;
         }
 
         .logo-text h1 {
@@ -86,6 +85,16 @@
             display: block;
             margin-top: -4px;
             font-weight: 600;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         nav ul {
@@ -223,6 +232,87 @@
             color: var(--accent-color);
         }
 
+        /* Apparel Section Styles */
+        .apparel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .apparel-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .apparel-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .apparel-img-box {
+            width: 100%;
+            height: 300px;
+            background-color: #f7f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .apparel-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .apparel-card:hover .apparel-img-box img {
+            transform: scale(1.05);
+        }
+
+        .apparel-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .apparel-info h3 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .apparel-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .badge-soon {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--price-tag);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            font-weight: bold;
+            font-size: 0.75rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            z-index: 5;
+        }
+
         /* Founder Section Styling */
         .founder-section {
             background-color: var(--white);
@@ -263,22 +353,7 @@
         .founder-img-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Keeps your face proportions safe and perfectly shaped */
-        }
-
-        .founder-card h3 {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-bottom: 0.25rem;
-        }
-
-        .founder-title {
-            font-weight: 700;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            object-fit: cover;
         }
 
         /* Pricing & Services Section */
@@ -364,7 +439,7 @@
             background: var(--white);
             padding: 2.5rem;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05)
         }
 
         .form-group {
@@ -432,7 +507,30 @@
         }
 
         @media (max-width: 768px) {
-            nav ul { display: none; }
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 1.5rem 5%;
+                gap: 15px;
+            }
+
             .hero h2 { font-size: 2rem; }
         }
     </style>
@@ -443,18 +541,23 @@
         <div class="nav-container">
             <div class="logo-area">
                 <div class="logo-graphics">
-                    <img src="https://i.ibb.co/gM87GLTs/Whats-App-Image-2026-03-02-at-11-14-36.jpg" alt="Kgosi Tech Logo">
+                    <!-- Your main company logo -->
+                    <img src="https://i.ibb.co/gM87GLTs/IMG-20250212-WA0001.jpg" alt="Kgosi Tech Logo">
                 </div>
                 <div class="logo-text">
                     <h1>KGOSI TECH</h1>
                     <span>SECURITY & BUSINESS SOLUTIONS</span>
                 </div>
             </div>
-            <nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav id="navMenu">
                 <ul>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Core Offerings</a></li>
                     <li><a href="#packages">CCTV Packages</a></li>
+                    <li><a href="#apparel">Apparel Gear</a></li>
                     <li><a href="#corporate">Corporate & IT</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -467,7 +570,7 @@
         <p>Bridging the gap between essential physical security and foundational business administration. We secure your property and formalize your business across Barkly West and the broader Northern Cape.</p>
         <div class="hero-buttons">
             <a href="#packages" class="btn">CCTV Packages</a>
-            <a href="#corporate" class="btn btn-secondary">Business & IT Services</a>
+            <a href="#apparel" class="btn btn-secondary">Explore Apparel</a>
         </div>
     </section>
 
@@ -514,7 +617,8 @@
         <p class="section-subtitle">The driving force behind Kgosi Tech.</p>
         <div class="founder-card">
             <div class="founder-img-container">
-                <img src="https://i.imgur.com/MybZtmL.jpeg" alt="Bakang Kgosi">
+                <!-- Corrected Portrait of Bakang Kgosi -->
+                <img src="https://i.imgur.com/TshufJO.jpeg" alt="Bakang Kgosi">
             </div>
             <h3>Bakang Kgosi</h3>
             <div class="founder-title">Founder of Kgosi Tech</div>
@@ -575,7 +679,62 @@
         </div>
     </section>
 
-    <section id="corporate" class="section" style="background-color: var(--white);">
+    <section id="apparel" class="section" style="background-color: var(--white);">
+        <h2 class="section-title">Official Kgosi Tech Apparel</h2>
+        <p class="section-subtitle">Gear up for the season! Secure your premium branded summer drop today.</p>
+        
+        <div class="apparel-grid">
+            <div class="apparel-card">
+                <span class="badge-soon">Summer Pre-Order</span>
+                <div class="apparel-img-box">
+                    <!-- Premium Red Cap with company logo -->
+                    <img src="https://i.imgur.com/8J31q1J.jpeg" alt="Kgosi Tech Red Cap with Logo">
+                </div>
+                <div class="apparel-info">
+                    <div>
+                        <h3>Premium Snapback - Fire Red</h3>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 0.5rem;">Official branded wear with premium cyan front logo embroidery.</p>
+                    </div>
+                    <div class="apparel-price">R250</div>
+                    <button class="btn" onclick="selectPackage('Apparel - Premium Red Cap (R250)')">Pre-Order Cap</button>
+                </div>
+            </div>
+
+            <div class="apparel-card">
+                <span class="badge-soon">Summer Pre-Order</span>
+                <div class="apparel-img-box">
+                    <!-- Premium Black Cap with company logo -->
+                    <img src="https://i.imgur.com/kr2qeyV.jpeg" alt="Kgosi Tech Black Cap with Logo">
+                </div>
+                <div class="apparel-info">
+                    <div>
+                        <h3>Premium Snapback - Stealth Black</h3>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 0.5rem;">Stealth black aesthetic featuring official circular embroidery logo.</p>
+                    </div>
+                    <div class="apparel-price">R250</div>
+                    <button class="btn" onclick="selectPackage('Apparel - Premium Black Cap (R250)')">Pre-Order Cap</button>
+                </div>
+            </div>
+
+            <div class="apparel-card">
+                <span class="badge-soon">Coming Soon</span>
+                <div class="apparel-img-box">
+                    <!-- Updated with official Kgosi Tech Golf Shirt picture -->
+                    <img src="https://i.imgur.com/lnUAbL3.png" alt="Kgosi Tech Golf Shirt">
+                </div>
+                <div class="apparel-info">
+                    <div>
+                        <h3>Kgosi Tech Golf T-Shirt</h3>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 0.5rem;">Premium smart-casual branded golf shirt. Drops soon!</p>
+                    </div>
+                    <div class="apparel-price">R300</div>
+                    <button class="btn btn-secondary" style="border-color: var(--accent-color); color: var(--accent-color);" onclick="selectPackage('Apparel - Golf T-Shirt Waitlist')">Join Waitlist</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="corporate" class="section pricing">
         <h2 class="section-title">Corporate Services & Specialized Packages</h2>
         <p class="section-subtitle">Formalize your enterprise, unlock government tenders, and establish a digital identity.</p>
         
@@ -618,25 +777,31 @@
     </section>
 
     <section id="contact" class="section">
-        <h2 class="section-title">Request a Quote or Service</h2>
+        <h2 class="section-title">Request a Quote or Pre-Order</h2>
         <p class="section-subtitle">Let us help you build a safe, compliant, and thriving business setup.</p>
         <div class="contact-container">
-            <form id="bookingForm">
+            <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                 <div class="form-group">
                     <label for="name">Your Name / Business Name</label>
-                    <input type="text" id="name" required placeholder="Enter name">
+                    <input type="text" name="name" id="name" required placeholder="Enter name">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" required placeholder="e.g. 084 540 2663">
+                    <input type="tel" name="phone" id="phone" required placeholder="e.g. 084 540 2663">
                 </div>
                 <div class="form-group">
-                    <label for="package">Select Service / Package</label>
-                    <select id="package">
+                    <label for="package">Select Service / Package / Apparel</label>
+                    <select name="package" id="package">
                         <option value="General Inquiry">General IT / Security Inquiry</option>
                         <option value="4 Channel System (R6 500)">4 Channel CCTV Installation - R6 500</option>
                         <option value="8 Channel System (R8 500)">8 Channel CCTV Installation - R8 500</option>
                         <option value="16 Channel System (R14 500)">16 Channel CCTV Installation - R14 500</option>
+                        <option value="Apparel - Premium Red Cap (R250)">Apparel: Premium Red Cap - R250</option>
+                        <option value="Apparel - Premium Black Cap (R250)">Apparel: Premium Black Cap - R250</option>
+                        <option value="Apparel - Golf T-Shirt Waitlist">Apparel: Golf T-Shirt Waitlist - R300</option>
                         <option value="Corporate Compliance Filing">Corporate Service (CIPC, SARS Compliance, Returns)</option>
                         <option value="Business Launch Package">Business Launch Package Bundle Deal</option>
                         <option value="IT Support Inquiry">IT Technical Support / Email Hosting</option>
@@ -644,7 +809,7 @@
                 </div>
                 <div class="form-group">
                     <label for="message">Message Details</label>
-                    <textarea id="message" rows="4" placeholder="Let us know your specific requirements, structural layout, or physical address details..."></textarea>
+                    <textarea name="message" id="message" rows="4" placeholder="Let us know your requirements, delivery location, or physical address..."></textarea>
                 </div>
                 <button type="submit" class="btn" style="width: 100%;">Submit Request</button>
             </form>
@@ -656,36 +821,30 @@
             <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> WhatsApp Us: 084 540 2663
         </a>
         <a href="https://web.facebook.com/people/KGOSI-TECH-CCTV-SOLUTIONS/100095111956041/" target="_blank" class="social-link-btn fb">
-            <i class="fa-brands fa-facebook" style="font-size: 1.3rem;"></i> Facebook: KGOSI TECH CCTV SOLUTIONS
+            <i class="fa-brands fa-facebook" style="font-size: 1.3rem;"></i> Facebook: KGOSI TECH CCTV
         </a>
     </div>
 
     <footer>
-        <p>&copy; 2026 Kgosi Tech CCTV Solutions. All Rights Reserved.</p>
-        <p style="font-size: 0.85rem; margin-top: 5px;">Physical Security Surveillance • Business Compliance Architecture • Managed IT Systems</p>
-        <div class="footer-info">
-            📍 Barkly West, Mataleng, Northern Cape<br>
-            📞 084 540 2663 | ✉ bkgosi58@gmail.com
-        </div>
+        <p>&copy; 2026 Kgosi Tech. All Rights Reserved.</p>
+        <p class="footer-info">Barkly West, Northern Cape, South Africa</p>
     </footer>
 
     <script>
-        function selectPackage(packageName) {
-            const dropdown = document.getElementById('package');
-            dropdown.value = packageName;
-            document.getElementById('contact').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const chosenService = document.getElementById('package').value;
-            alert(`Thank you, ${name}! Your request for "${chosenService}" has been simulated successfully. We will reach out soon regarding your operations in the Northern Cape.`);
-            this.reset();
+        // Simple Navigation Toggle for Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
+
+        // Autofill selected package function
+        function selectPackage(packageName) {
+            const packageSelect = document.getElementById('package');
+            packageSelect.value = packageName;
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
-
